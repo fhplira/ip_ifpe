@@ -1,0 +1,105 @@
+<script>
+    function bordaBanheira() {
+        var raioBanheiraSemBorda, raioBanhComBorda, areaBorda, precoMetroBorda, custoTotal;
+        raioBanhComBorda = parseFloat(prompt("Insira em metros o raio da banheira com a borda: "));
+        raioBanheiraSemBorda = parseFloat(prompt("Insira em metros o raio da banheira sem a borda: "));
+        precoMetroBorda = parseFloat(prompt("Insira o valor em reais do metro quadrado da borda de banheira: ")); 
+        areaBorda = (3.14 * raioBanhComBorda ** 2) - (3.14 * raioBanheiraSemBorda ** 2);
+        custoTotal = areaBorda * precoMetroBorda;
+        document.write("O custo total da peca sera de R$ " + custoTotal);
+    }
+
+    function consecionariaMotos() {
+        var precoCompraMoto, impostos, seguro, lucroRevendedora, comissaoVendedor, precoVendaMoto;
+        precoCompraMoto = parseFloat(prompt("Insira o custo de compra da moto em reais: "));
+        impostos = precoCompraMoto * 0.26;
+        seguro = precoCompraMoto * 0.02;
+        lucroRevendedora = precoCompraMoto * 0.08;
+        comissaoVendedor = precoCompraMoto * 0.01;
+        precoVendaMoto = precoCompraMoto + seguro + impostos + lucroRevendedora + comissaoVendedor;
+        document.write("O preço de venda da moto será de R$ " + precoVendaMoto);
+    }
+
+    function mediaRelativa() {
+        var mediaTurma, mediaAluno, mediaRelativaAluno;
+        mediaTurma = parseFloat(prompt("Digite a média da turma: "));
+        mediaAluno = parseFloat(prompt("Digite a média da turma: "));
+        mediaRelativaAluno = (mediaAluno / mediaTurma) * 100;
+        document.write("O percentual da media relativa deste aluno com relação à turma é de " + mediaRelativaAluno + "%");
+    }
+    
+    function pintarTampas() {
+        var raioTampa, areaTampa, quantidadeTampas, custoTotal;
+        raioTampa = parseFloat(prompt("Informe o raio da tampa em cm: "));
+        areaTampa = (3.14 * raioTampa ** 2) / 100;
+        quantidadeTampas = parseInt(prompt("Informe a quantidade de tampas a serem pintadas: "));
+        custoTotal = areaTampa * quantidadeTampas * 2.5;
+        document.write("O custo total do pedido será de R$ " + custoTotal)
+    }
+
+    function eleicao() {
+        var votosNulos, votosBrancos, votosValidos, totalVotos, percentualNulo, percentualBranco, percentualValidos;
+        votosNulos = parseInt(prompt("Insira a quantidade de votos nulos: "));
+        votosBrancos = parseInt(prompt("Insira a quantidade de votos brancos: "));
+        votosValidos = parseInt(prompt("Insira a quantidade de votos validos: "));
+        totalVotos = votosNulos + votosBrancos + votosValidos;
+        percentualNulo = (votosNulos/totalVotos) * 100;
+        percentualBranco = (votosBrancos/totalVotos) * 100;
+        percentualValidos = (votosValidos/totalVotos) * 100;
+        document.write(`O percentual de votos nulos é de ${percentualNulo}% <br> O percentual de votos brancos é de ${percentualBranco}% <br> O percentual de votos válidos é de ${percentualValidos}%`);
+    }
+
+    function calcularSalario() {
+        var salarioBase, descontoImposto, comissaoVenda, descontoAdiantamento, salarioFinal;
+        salarioBase = parseFloat(prompt('Insira o valor base do salário em reais: '));
+        descontoImposto = salarioBase * 0.09;
+        comissaoVenda = parseInt(prompt('Insira a quantidade de vendas realizadas pelo funcionário no mês: '));
+        descontoAdiantamento = parseFloat(prompt('Insira o valor em reais adiantado pelo funcionário no mês: '));
+        salarioFinal = salarioBase + comissaoVenda - descontoImposto - descontoAdiantamento;
+        document.write(`O salário final do funcionário este mês é de R$${salarioFinal}.`);
+    }
+
+    function custoViagem() {
+        var distanciaViagem, consumoCombustivel, precoLitroCombustivel, gastoViagem;
+        distanciaViagem = parseFloat(prompt('Insira a distância da viagem em Km: '));
+        consumoCombustivel = parseFloat(prompt('Insira quantos Km o carro percorre com 1 litro de combustível: '));
+        precoLitroCombustivel = parseFloat(prompt('Insira o preço em reais do litro de combustível: '));
+        gastoViagem = (distanciaViagem/consumoCombustivel) * precoLitroCombustivel;
+        document.write("O custo da viagem em reais será de R$ " + gastoViagem);
+    }
+
+    function bandeirasJapao() {
+        var comprimentoBandeira, larguraBandeira, areaBandeira, precoTecidoBranco, precoTecidoVermelho, quantidadeBandeiras, custoBandeira, precoTotal;
+        comprimentoBandeira = parseFloat(prompt('Informe o comprimento da bandeira em metros: '));
+        larguraBandeira = parseFloat(prompt('Informe a largura da bandeira em metros: '));
+        areaBandeira = comprimentoBandeira * larguraBandeira;
+        precoTecidoBranco = parseFloat(prompt('Informe o preço em reais do m² do tecido branco: '));
+        precoTecidoVermelho = parseFloat(prompt('Informe o preço em reais do m² do tecido vermelho: '));
+        quantidadeBandeiras = parseInt(prompt('Insira a quantidade de bandeiras do pedido: '));
+        custoBandeira = (areaBandeira * 2/3 * precoTecidoBranco) + (areaBandeira * 1/3 * precoTecidoVermelho);
+        precoTotal = custoBandeira * quantidadeBandeiras;
+        document.write('O preço total do pedido é de R$ ' + precoTotal);
+    }
+
+    function fertilizante() {
+        var qtdN, qtdK, qtdP, qtdFertilizante;
+        qtdFertilizante = parseFloat(prompt('Insira a quantidade em Kg de fertilizante desejada: '));
+        qtdN = qtdFertilizante * 3/6;
+        qtdK = qtdFertilizante * 2/6;
+        qtdP = qtdFertilizante * 1/6;
+        document.write(`A quantidade de Nitrogênio, Potássio e Fósforo necessária para a composição de ${qtdFertilizante} Kg de fertilizante é de, respectivamente, ${qtdN}Kg, ${qtdK}Kg, ${qtdP}Kg.`);
+    }
+
+    function metroplaza() {
+        var precoLataVendida, qtdLatasVendidas, custoDeCompra, impostos, lucroProprietario, totalApurado;
+        precoLataVendida = parseFloat(prompt('Insira o preço de venda da latinha de cerveja em reais: '));
+        qtdLatasVendidas = parseInt(prompt('Insira a quantidade de latinhas vendidas: '));
+        totalApurado = precoLataVendida * qtdLatasVendidas;
+        custoDeCompra = totalApurado * 0.55;
+        impostos = totalApurado * 0.25;
+        lucroProprietario = totalApurado * 0.20;
+        document.write(`O custo total das latas vendidas foi de R$ ${custoDeCompra} <br> O total de impostos pagos pelas latas de cervejas vendidas foi de R$ ${impostos} <br> O lucro total do proprietário com a venda foi de R$ ${lucroProprietario}`);
+    }
+
+
+</script>

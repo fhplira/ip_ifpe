@@ -1,0 +1,198 @@
+<script>
+    function arrayParImpar() {
+        var numero, par = [], impar = [];
+        for (var i = 0; i < 10; i++) {
+            numero = parseInt(prompt("digite um numero:"));
+            if (numero % 2 == 0) {
+                par.push(numero);
+            } else {
+                impar.push(numero);
+            }
+        }
+        document.write(`os pares são [${par}]`);
+        document.write(`<br> os impares são [${impar}]`)
+    }
+
+    function contaQuantosPares() {
+        var numero, lista = [], pares = 0;
+        for (var i = 0; i < 20; i++) {
+            numero = parseInt(prompt("informe um numero: "));
+            lista.push(numero);
+            if (numero % 2 == 0) {
+                pares++;
+            }
+        }
+        document.write(pares);
+        }
+
+    function trocaElementos() {
+        var numero, lista = [], listaInvertida = [];
+        for (i = 0; i < 5; i++) {
+            numero = parseInt(prompt("informe um numero"));
+            lista.push(numero);
+    //      listaInvertida.unshift(numero);
+        }
+        for (i = lista.length -1; i >= 0; i--) {
+            listaInvertida.push(lista[i])
+        }
+        document.write(`[${lista}] <br> [${listaInvertida}]`)
+    }
+
+    function procuraMenorValor() {
+        //  um programa que lê 15 elementos inteiros e os armazena num array. Depois encontra e mostra o menor elemento e sua posição no array.
+   
+        var numero, lista = [], menor;
+        for (var i = 0; i < 15; i++) {
+            numero = parseInt(prompt("informe um numero: "));
+            lista.push(numero);
+        } 
+        menor = lista[0]
+        for (var i = 1; i < lista.length; i++) {
+            if (lista[i] < menor) {
+                menor = lista[i];
+            } else {
+                menor = menor;
+            }
+        }
+        document.write(`a lista [${lista}], <br> seu menor elemento ${menor}, <br> e seu indice: ${lista.indexOf(menor)}`)
+    }
+
+    function matrizSomaIndices() {
+        // elabore um programa que possua uma matriz bidimensional com 5 linhas e 3 colunas e atribua a cada elemento desta matriz um valor correspondente a soma de sua posição na matriz (a lei de formação é i + j para todos elementos). Depois, faça o programa mostrar todos elementos desta matriz.
+
+        var matriz = [], elemento;
+
+        for (var linha = 0; linha < 5; linha++) {
+            matriz[linha] = []
+            for (var coluna = 0; coluna < 3; coluna++) {
+                elemento = (linha + 1) + (coluna + 1);
+                matriz[linha].push(elemento);
+            }
+            document.write(`|${matriz[linha]}|<br>`)
+
+        }
+    }
+
+    function verificaGabarito() {
+        //Desenvolva um programa de computador que contenha um array chamado gabarito, que possui 10 caracteres. Este array representa o gabarito de uma prova. A seguir, solicite que o usuário informe um array chamado respostas de um estudante, e, comparando o array de gabarito com o de respostas, conte o número de acertos. Mostre o nº de acertos deste estudante e a mensagem APROVADO, se a quantidade de acertos for maior ou igual a 6; e mostre uma mensagem de REPROVADO, caso contrário.
+
+        var gabarito = ['a', 'c', 'd', 'a', 'b', 'a', 'a', 'd', 'b', 'a'], respostasDoEstudante = [], resposta, acertos = 0, erros = 0;
+
+        for (var i = 0; i < 10; i++) {
+            resposta = prompt('informe a resposta do estudante:');
+            respostasDoEstudante.push(resposta);
+            if (resposta == gabarito[i]){
+                acertos = acertos + 1;
+            } else {
+                erros = erros + 1;
+            }
+        }
+
+        if (acertos >= 6) {
+            status = "APROVADO";
+        } else {
+            status = 'REPROVADO';
+        }
+
+        document.write(`o gabarito da prova é [${gabarito}]; <br> as respostas do estudante foram [${respostasDoEstudante}] <br> o total de acertos foi ${acertos}, logo o estudante está ${status}`)
+    }
+
+    function vinteNumerosPrimos() {
+        // Desenvolva um programa de computador que gere os 20 primeiros números primos acima de 100 e os armazena em array. Depois, exiba este array.
+        var primos = [];
+        for (var numero = 100; primos.length < 20; numero++) {
+            if (numero % 2 != 0 && numero % 3 != 0 && numero % 5 != 0 && numero % 7 != 0 && numero % 11 != 0 && numero % 13 != 0) {
+                    primos.push(numero);
+                }
+        }
+        document.write(`a lista dos 20 primeiros numeros primos maiores que 100 é [${primos}]`)
+    }
+
+    function diagonal() {
+        // Desenvolva um programa de computador que calcule a média dos elementos da diagonal principal de uma matriz 10 x 10 de inteiros.
+        var matriz = [], elemento, soma = 0;
+
+        for (var linha = 0; linha < 10; linha++) {
+            matriz[linha] = []
+            for (var coluna = 0; coluna < 10; coluna++) {
+                elemento = Math.floor(Math.random() * (99 - (-99) + 1)) + (-99);
+                matriz[linha].push(elemento);
+            }
+            document.write(`| ${matriz[linha]} |<br>`)
+        }
+
+        for (var i = 0; i < 10; i++) {
+            for (var j = 0; j < 10; j++) {
+                if (i == j) {
+                    soma = soma + matriz [i][j];
+                }
+            }
+        }
+
+        media = soma / 10;
+
+        document.write(`a media dos elementos da diagonal principal da matriz é ${media}`)
+    }  
+    
+    function somaMatrizes() {
+        // Faça um programa de computador que crie duas matrizes 3x3. Uma destas matrizes possui como cada elemento um valor par e a outra matriz um número ímpar. Depois, faça uma terceira matriz 3x3 que represente a soma destas matrizes.
+    
+        var matrizPar = [], matrizImpar = [], somaMatrizes = [], elementoPar, elementoImpar, elementoSoma, somaLinhas;
+
+        for (var linhaPar = 0; linhaPar < 3; linhaPar++) {
+            matrizPar[linhaPar] = []
+            while (matrizPar[linhaPar].length < 3){
+                elementoPar = Math.floor(Math.random() * (99 - (-99) + 1)) + (-99);
+                if (elementoPar % 2 == 0) {
+                    matrizPar[linhaPar].push(elementoPar)
+                }
+            }
+            document.write(`<br> | ${matrizPar[linhaPar]} | <br>`)
+        }
+
+        for (var linhaImpar = 0; linhaImpar < 3; linhaImpar++) {
+            matrizImpar[linhaImpar] = []
+            while (matrizImpar[linhaImpar].length < 3){
+                elementoImpar = Math.floor(Math.random() * (99 - (-99) + 1)) + (-99);
+                if (elementoImpar % 2 == 1) {
+                    matrizImpar[linhaImpar].push(elementoImpar)
+                }
+            }
+            document.write(` <br> | ${matrizImpar[linhaImpar]} | <br>`)
+        }
+
+        for (var i = 0; i < 3; i++){
+            somaMatrizes[somaLinhas] = []
+            for (var j = 0; j < 3; j++){
+                var elementoSoma = matrizPar[i][j] + matrizImpar[i][j]
+                somaMatrizes[somaLinhas].push(elementoSoma)
+            }
+            document.write(` <br> | ${somaMatrizes[somaLinhas]} | <br>`)
+        }
+    }
+
+    function multiplicaPorA() {
+        // Desenvolva um programa de computador que leia uma matriz M(6,6) de inteiros e um valor A e multiplica a matriz M pelo valor A e coloca os valores da matriz multiplicados por A em um vetor V e escreve no final o vetor V.
+
+        var M = [], A, V = [];
+
+        for (var i = 0; i < 6; i++) {
+            M[i] = []
+            for (var j = 0; j < 6; j++) {
+                M[i][j] = parseInt(prompt(`informe o ${j + 1}º elemento da linha ${i + 1}: `))
+            }
+            document.write(`| ${M[i]} | <br>`)
+        }
+
+        A = parseInt(prompt(`Informe o valor de A: `))
+
+        for (var r = 0; r < M.lengh; r++) {
+            V[r] = []
+            for (var s = 0; s < M[0].length; s++) {
+                V[r][s] = M[r][s] * A
+            }
+            document.write(`<br> | ${V[r]} | <br>`)
+        }
+    }
+
+</script>

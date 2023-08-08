@@ -1,0 +1,332 @@
+<script>
+    function distintos() {
+        // Desenvolva um programa de computador que leia 20 números inteiros e os armazene em um array. Depois, mostre na tela cada um dos valores distintos que aparecem neste array, dizendo quantas vezes cada valor aparece neste array.
+
+        var array = [], numero, qtdVezes = 0, comparando;
+        for (var i = 0; i < 5; i++) {
+            numero = parseInt(prompt('digite um numero: '))
+            array.push(numero)
+        }
+        document.write(`[${array}] <br>`)
+
+            for (var j = 0; j < array.length; j++) {
+                for (var k = 0; k < array.length; k++) {
+                    if (array[k] == array[j]) {
+                        qtdVezes++;
+                    }
+                }
+            
+                for (var l = 0; l < j; l++) { //EU PRECISO QUE ELE LEIA APENAS ATE O INDICE J 
+                        if (array[l] == array[j]) {
+                            contador++
+                        }
+                    }
+
+                    if (contador < 1) {
+                        document.write(`o valor ${array[j]} aparece ${qtdVezes} vezes <br>`);
+                    }
+                qtdVezes = 0;
+                contador = 0;    
+            }
+    }
+
+    function compacta() {
+        //Desenvolva um programa de computador leia um array (A) de 100 posições. Em seguida, compacte o array, retirando os valores nulos e negativos. Coloque o resultado no array B. Mostre os arrays A e B.
+        var numero, arrayA = [], arrayB = [];
+        for (var i = 0; i < 5; i++) {
+            numero = parseInt(prompt(`digite o ${i + 1}º numero:`))
+
+            arrayA.push(numero)
+        }
+        
+        for (var j = 0; j < array.length; j++) {
+            if (arrayA[j] <= 0) {
+                arrayB.push(arrayA[j])
+            }
+    
+        }
+        document.write(`arrayA: [${arrayA}] <br>`)
+        document.write(`arrayB: [${arrayB}]`)
+    }
+
+    function dividePeloMaior() {
+        //Escreva um programa de computador que leia um array de 100 posições de números inteiros e divida todos os seus elementos pelo maior valor encontrado no array. Mostre o array após os cálculos.
+        var array = [], numero, maior, novoArray = [];
+        for (i = 0; i < 5; i++) {
+            numero = parseFloat(prompt(`informe o ${i + 1}º numero`))
+            array.push(numero)
+        }
+        document.write(`o array é [${array}] `)
+
+        maior = array[0]
+        for (j = 0; j < array.length; j++) {
+            if (array[j] > maior) {
+                maior = array[j]
+            }
+        }
+
+        for (elemento of array) {
+            elemento = elemento / maior
+            novoArray.push(elemento)
+        }
+
+        document.write(`o array após a divisao dos elementos pelo maior valor encontrado é [${novoArray}] `)
+    }
+
+    function arraySomas() {
+        // Desenvolva um programa de computador que leia dois arrays (A e B) de 50 posições de números inteiros. O programa deve, então, subtrair o primeiro elemento de A do último de B, acumulando o valor, subtrair o segundo elemento de A do penúltimo de B, acumulando o valor, e assim por diante. Mostre o resultado da soma final.
+        var arrayA = [];
+        var arrayB = [];
+        var soma = 0;
+        var numA;
+        var numB;
+
+        for (var i = 0; i < 5; i++) {
+            numA = parseInt(prompt(`Informe o ${i + 1}º numero do array A:`))
+            arrayA.push(numA)
+        }
+        document.write(`arrayA: [${arrayA}]`)
+
+        for (var j = 0; j < 5; j++) {
+            numB = parseInt(prompt(`Informe o ${j + 1}º numero do array B:`))
+            arrayB.push(numB)
+        }
+        document.write(`arrayB: [${arrayB}]`)
+
+        for (var k = 0; k < arrayA.length; k++) {
+            soma+= (arrayA[k] - arrayB[4 - k])
+        }
+        document.write(`soma: [${soma}]`)
+    }
+
+    function matrizesMat() {
+        // Elabore um programa de computador que lê duas matrizes A(4,6) e B(6,4) e crie uma matriz que seja: O produto matricial de A por B; A soma de A com B; A diferença de A com B; Escrever as matrizes lidas e as calculadas.
+
+        var matrizA = [], matrizB = [], produtoMatriz = [], somaMatriz = [], diferencaMatriz = [], produto = [], soma = 0;
+
+        // CONSTROI A MATRIZ A
+        for (var linhasA = 0; linhasA < 4; linhasA++) {
+            matrizA[linhasA] = []
+            for (var colunasA = 0; colunasA < 6; colunasA++) {
+                matrizA[linhasA][colunasA] = parseInt(prompt(`informe o ${colunasA + 1}º valor da ${linhasA + 1} linha da matriz A:`))
+            }
+            document.write(`| ${matrizA[linhasA]} | <br>`)
+        }
+        document.write("<br>")
+
+        // CONSTROI A MATRIZ B
+        for (var linhasB = 0; linhasB < 6; linhasB++) {
+            matrizB[linhasB] = []
+            for (var colunasB = 0; colunasB < 4; colunasB++) {
+                matrizB[linhasB][colunasB] = parseInt(prompt(`informe o ${colunasB + 1}º valor da ${linhasB + 1}º linha da matriz B:`))
+            }
+            document.write(`| ${matrizB[linhasB]} | <br>`)
+        }
+        document.write("<br>")
+
+        // MULTIPLICACAO DE A POR B AUTOMATIZADA
+        for (var i = 0; i < matrizA.length; i++) {
+            produto[i] = []
+            for (var j = 0; j < matrizB[0].length; j++) {
+                for (var k = 0; k < matrizA[0].length; k++) {
+                    soma += matrizA[i][k] * matrizB[k][j]
+                }
+                produto[i][j] = soma 
+                soma = 0
+            }
+            
+            document.write(`| ${produto[i]} <br>`)
+            
+        }
+
+
+
+        // SOMA DE A COM B
+        // SUBTRACAO DE A COM B 
+        // AMBAS INVIÁVEIS PORQUE AS MATRIZES NAO SAO DE MESMA ORDEM/TIPO
+    }
+
+    function matriz10x10() {
+        //Escreva um programa de computador que leia um número inteiro A e uma matriz V 10x10 de inteiros. Conte quantos valores iguais a A estão na matriz. Crie, a seguir, uma matriz X, contendo todos os elementos de V diferentes de A. Mostre os resultados.
+        var V = [], X = [], a;
+        for (var i = 0; i < 10; i++){
+            V[i] = []
+            for (var j = 0; j < 10; j++) {
+            V[i][j] = parseInt(prompt(`informe o ${j + 1}º numero da linha ${i + 1}`))
+            }
+            document.write(`| ${V[i]} | <br>`)
+        }
+
+        a = parseInt(prompt(`informe um numero`))
+
+        for (var r = 0; r < V.length; r++){
+            for (var s = 0; s < V[0].length; s++){
+                if (a != V[r][s]) {
+                    X.push(V[r][s])
+                }
+            }
+        }
+
+        document.write(X)
+    }
+
+    function matriz5x5() {
+        var M = [], sLinha = 0, sColuna = 0, sDiagPrinc = 0, sDiagSecun = 0, sTotal = 0;
+
+        // CRIA A MATRIZ M
+        for (var i = 0; i < 5; i++) {
+            M[i] = [];
+            for (var j = 0; j < 5; j++) {
+                M[i][j] = parseInt(prompt("insira um numero: "))
+            }
+            document.write(`| ${M[i]} | <br>`)
+        }
+
+        // SOMA DA LINHA 4 DE M
+        for (var k = 0; k < M[3].length; k++) {
+            sLinha += M[3][k]
+        }
+    
+        // SOMA DA COLUNA 2 DE M
+        for (var l = 0; l < M.length; l++) {
+            sColuna += M[l][1]
+        }
+
+        // SOMA DA DIAGONAL PRINCIPAL DE M
+        for (var m = 0; m < M.length; m++) {
+            for (var n = 0; n < M[0].length; n++)
+            if (m == n) {
+                sDiagPrinc += M[m][n]
+            }
+        }
+
+        // SOMA DA DIAGONAL SECUNDARIA DE M
+        for (var p = 0; p < M.length; p++) {
+            sDiagSecun += M[p][M.length - p]
+        }
+
+        // SOMA DE TODOS ELEMENTOS DE M
+        for (var r = 0; r < M.length; r++) {
+            for (var s = 0; s < M[0].length; s++) {
+                sTotal += M[r][s]
+            }
+        }
+
+        document.write(`<br> a soma dos elementos da linha 4 de M: ${sLinha} <br>`)
+        document.write(`a soma dos elementos da coluna 2 de M: ${sColuna} <br>`)
+        document.write(`a soma dos elementos da diagonal principal de M: ${sDiagPrinc} <br>`)
+        document.write(`a soma dos elementos da diagonal secundaria de M: ${sDiagSecun} <br>`)
+        document.write(`a soma dos elementos de M: ${sTotal}`)
+    }
+
+    function matrizScSl() {
+        // Elabore um programa de computador que lê uma matriz M(5,5) e cria dois arrays SL(5) e SC(5) que contenham, respectivamente, as somas das linhas e colunas de M. Escrever a matriz e os arrays criados.
+        var M = [], sC = [], sL = [], somaParcial = 0, somaLinha = 0, somaColuna = 0;
+
+        // CRIA A MATRIZ M
+        for (i = 0; i < 2; i++) {
+            M[i] = []
+            for (j = 0; j < 2; j++) {
+                M[i][j] = parseInt(prompt(`digite o ${j + 1}º elemento da linha ${i + 1}`))
+            }
+            document.write(`| ${M[i]} | <br>`)
+        }
+
+        // SOMA DAS LINHAS DE M
+        for (k = 0; k < M.length; k++) {
+            for (l = 0; l < M[0].length; l++) {
+                somaParcial += M[k][l]
+            }
+            sL.push(somaLinha += somaParcial)
+            somaLinha = 0
+            somaParcial = 0
+        }
+        document.write(`a soma das linhas de M: [${sL}] <br>`)
+
+
+        // SOMA DAS COLUNAS DE M
+        for (m = 0; m < M.length; m++) {
+            for (n = 0; n < M[0].length; n++) {
+                somaParcial += M[n][m]
+                
+            }
+            sC.push(somaColuna += somaParcial)
+            somaColuna = 0
+            somaParcial = 0
+        }
+        document.write(`a soma das colunas de M: [${sC}] <br>`)
+    }
+
+    function matriz123() {
+        // Desenvolva um programa de computador que gere e exiba a seguinte matriz:
+        // 1 1 1 1 1 1
+        // 1 2 2 2 2 1
+        // 1 2 3 3 2 1
+        // 1 2 3 3 2 1
+        // 1 2 2 2 2 1
+        // 1 1 1 1 1 1
+        var M = [];
+        for (var i = 0; i < 6; i++) {
+            M[i] = []
+            for (var j = 0; j < 6; j++) {
+                if (i == 0 || j == 0 || i == 5 || j == 5) {
+                    M[i][j] = 1
+                } else if (((i == 1 || i == 4) && (j >= 1 || j <= 4)) || ((j == 1 || j == 4) && (i >= 1 || i <= 4))) {
+                    M[i][j] = 2
+                } else if (((i == 2 || i == 3) && (j == 2 || j == 3)) || ((j == 2 || j == 3) && (i == 2 || i == 3))) {
+                    M[i][j] = 3
+                }
+            } 
+            document.write(`| ${M[i]} | <br>`)
+        }
+    }
+
+    function determinante() {   
+        // Escreva um programa de computador que leia os números inteiros de uma matriz M 3x3 e calcule o determinante dessa matriz.
+
+        var M = [], dPrincipal = [], somaPrin = 0, diagonal = 1, dSecundaria = [], somaSec = 0, diagonalS = 1, determinante;
+
+        // CRIA A MATRIZ M
+        for (var i = 0; i < 3; i++) {
+            M[i] = [];
+            for (var j = 0; j < 3; j++) {
+                M[i][j] = parseInt(prompt(`Informe o ${j +1}º numero da linha ${i + 1}:`));
+            }
+            document.write(`| ${M[i]} | <br>`)
+        }
+
+        // REPETE AS DUAS PRIMEIRAS COLUNAS
+        for (var k = 0; k < 3; k++) {
+            for (var l = 0; l < 2; l++) {
+                M[k].push(M[k][l])
+            }        
+            document.write(`| ${M[k]} | <br> `)
+        }
+
+        // CALCULA OS ELEMENTOS DA DIAGONAL PRINCIPAL E ADICIONA NUMA LISTA
+        for (var m = 0; m < M.length; m++) {
+            for (var n = 0; n < M.length; n++) {
+                diagonal = diagonal * M[n][n + m]
+            }
+            dPrincipal.push(diagonal)
+            diagonal = 1   
+        }
+
+        // CALCULA OS ELEMENTOS DA DIAGONAL SECUNDARIA E ADICIONA NUMA LISTA
+        for (var r = 0; r < M.length; r++) {
+            for (var s = 0; s < M.length; s++) {
+                diagonalS = diagonalS * M[s][r + 2 - s]
+            }
+            dSecundaria.push(diagonalS)
+            diagonalS = 1
+        }
+
+        // SOMA OS VALORES DAS LISTAS DIAGONAIS
+        for (var t = 0; t < 3; t++) {
+            somaPrin += dPrincipal[t]
+            somaSec += dSecundaria[t]
+        }
+        determinante = somaPrin - somaSec;
+        document.write(`<br> O DETERMINANTE DA MATRIZ É: ${determinante}`)
+    }
+</script>

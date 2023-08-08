@@ -1,0 +1,81 @@
+<script>
+    function mostraMatriz (m, n) {
+        var M = [];
+        for (var i = 0; i < m; i++) {
+            M[i] = []
+            for (var j = 0; j < n; j++) {
+                M[i][j] = parseInt(prompt(`informe o ${j + 1}º elemento da linha ${i + 1}`));
+            }
+            document.write("|" + M[i] + "|" + "<br>")
+        }
+    }
+    //document.write(mostraMatriz(2, 2))
+
+    function multiplicaMatriz (A, B) {
+        var C = [[],[]], soma = 0;
+        if (A[0].length == B.length) {
+            for (var k = 0; k < A.length; k++) {
+                for (var l = 0; l < B[0].length; l++) {
+                    for (var m = 0; m < A[0].length; m++) {
+                        soma += A[k][m] * B[m][l];
+                    }
+                    C[k][l] = soma;
+                    soma = 0;
+                }
+            }
+        } else {
+            document.write(`matrizes incompativeis para multiplicacao <br> C = []`)
+        }
+        return C;
+    }
+    //document.write(multiplicaMatriz([[1,2],[3,4]], [[5,6],[7,8]]));
+
+    function transpostaMatriz (matriz) {
+        var transposta = [];
+        for (var colunas = 0; colunas < matriz[0].length; colunas++) {
+            transposta[colunas] = []
+            for (var linhas = 0; linhas < matriz.length; linhas++) {
+                transposta[colunas][linhas] = matriz[linhas][colunas]
+            }
+
+        }
+        return transposta;
+    }
+    //document.write(transpostaMatriz([[1,2],[3,4],[5,6]]))
+
+    function somaMatriz (matrizA, matrizB) {
+        var somaDasMatrizes = [];
+        if (matrizA.length == matrizB.length && matrizA[0].length == matrizB[0].length) {
+            for (var i = 0; i < matrizA.length; i++) {
+                somaDasMatrizes[i] = []
+                for (var j = 0; j < matrizA[0].length; j++) {
+                    somaDasMatrizes[i][j] = matrizA[i][j] + matrizB[i][j]
+                }
+            }
+        } else {
+            document.write(`matrizes imcompativeis para soma <br> somaDasMatrizes = []`)
+        }
+
+        return somaDasMatrizes;
+    }
+    //document.write(somaMatriz([[1, 2], [3, 4]],[[5, 6], [7, 8]]))
+
+    function subtraiMatriz (matrizC, matrizD) {
+        var diferencaMatrizes = [];
+        if (matrizC.length == matrizD.length && matrizC[0].length == matrizD[0].length) {
+            for (var i = 0; i < matrizC.length; i++) {
+                diferencaMatrizes[i] = []
+                for (var j = 0; j < matrizC[0].length; j++) {
+                    diferencaMatrizes[i][j] = matrizC[i][j] - matrizD[i][j]
+                }
+            }
+        } else {
+            document.write(`matrizes imcompativeis para subtração <br> diferencaMatrizes = []`)
+        }
+
+        return diferencaMatrizes;
+    }
+    //document.write(subtraiMatriz([[6, 5], [8, 7]],[[3, 2], [5, 4]]))
+
+
+</script>
